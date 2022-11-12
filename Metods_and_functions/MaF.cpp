@@ -2,7 +2,7 @@
 
 //#define One
 //#define Two
-//#define three
+#define three
 
 class distance
 {
@@ -83,7 +83,6 @@ void main()
 	double a = 0;
 	double b = 0;
 	B.print(a, b);
-	B.dist(a, b);
 	std::cout << "distance: " << B.dist(a,b);
 }
 #endif // three
