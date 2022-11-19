@@ -40,7 +40,7 @@ public:
 	{
 		this->x = x;
 		this->y = y;
-		std::cout << "LargdConstructor" << this << std::endl; // Строчку с выводом диструктора можно просто удалить, 
+		std::cout << "LargdConstructor" << this << std::endl; // Строчку с выводом конструктора можно просто удалить, 
 														  //дабы глазу не мешал, но оставил для наглядности.
 	}
 	Point(const Point& other)	
