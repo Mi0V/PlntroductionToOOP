@@ -47,9 +47,47 @@ public:
 
 	double fruct(Fructions&)
 	{
-		
-		double division = get_x() / get_y();
+		cout << "Расчет числителя: " << mas(x,y) << endl;
+		cout << "Знаменатель: "; cin >> this->y;
+		double division = get_z() / get_y();
 		return division;
+	}
+
+	double mas(double x, double y)
+	{
+		double all = 0;
+		int a = 0;
+		int SIZE = 5;
+		int* arr = new int[SIZE];
+		for (int i = 0; i < SIZE; i++)
+		{
+
+
+			cin >> arr[i];
+			all += arr[i];
+			set_z(all);
+
+
+			/*if (arr[i] == 1000)
+			{
+				cin >> arr[i];
+				a = arr[i];
+				all += arr[i];
+				set_z(all);
+			}
+			else
+			{
+				SIZE++;
+				cin >> arr[i];
+				all += arr[i];
+				set_z(all);
+			}*/
+			
+		}
+		delete[] arr;
+		return all;
+
+
 	}
 
 
@@ -60,10 +98,7 @@ void main()
 	double x;
 	double y;
 	setlocale(LC_ALL, "rus");
-	cout << "Деление "; cin >> x; cout << "На ";  cin >> y;
 	Fructions One;
-	One.set_x(x);
-	One.set_y(y);
 	cout << "Ответ: " << One.fruct(One);
 
 
