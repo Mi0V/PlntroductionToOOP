@@ -2,72 +2,89 @@
 #include <string.h>
 using namespace std;
 
+#define WIDTH 22
 
+STRIN operator+(STRIN& one, STRIN& two);
 class STRIN
 {
-	string strg;
-	string all_str;
+	size_t size;
+	char* str;
+
 public:
 
-	//geters and seters
-	string get_str()const
+	
+
+
+	explicit STRIN(size_t size = 80)
 	{
-		return strg;
-	}
-	void set_str(string str)
-	{
-		this->strg = str;
-	}
-	string get_all_str()const
-	{
-		return all_str;
-	}
-	void set_all_str(string all_str)
-	{
-		this->all_str = all_str;
+		this->size = size;
+		this->str = new char[size] {};
+		cout.width(WIDTH);
+		cout << std::left << "DefaultConstructor:" << this << endl;
 	}
 
-	//constructors
-
-	STRIN()
+	STRIN(const char* str)
 	{
-		this->strg = strg;
-		set_str(strg);
-		cout << "def const" << endl;
+		this->size = strlen(str) + 1;
+
+		this->str = new char[size] {};
+		for (int i = 0; i < size; i++)
+		{
+			this->str[i] = str[i];
+		}
+		cout.width(WIDTH);
+		cout << std::left << "Const:" << this << endl;
+	}
+
+	STRIN(const STRIN& other)
+	{
+		this->size = other.size;
+		this->str = new char[size] {};
+		for (int i = 0; i < size; i++)
+		{
+			this->str[i] = other.size;
+		}
+		cout.width(WIDTH);
+		cout << std::left << "CopyConstructor:" << this << endl;
 	}
 
 	~STRIN()
 	{
-		cout << "destructor" << endl;
+		delete[] this->str;
+		cout.width(WIDTH);
+		cout << std::left << "destructor" << this << endl;
 	}
 
 	//Metods
 
-	void print(STRIN obj)
+	void print()const
 	{
-		cout << obj.get_str() << endl;
+		cout << "Size:\t" << size << endl;
+		cout << "Str:\t" << str << endl;
 	}
+
 
 };
 
 void main()
 {
-	string reg = "str";
-	setlocale(LC_ALL, "rus");
-	STRIN str1 = "Hello";
-	STRIN str2 = "World";
-	STRIN str3 = str1 + str2;
-	cout << str3 << endl;
+	setlocale(LC_ALL, "");
+	STRIN str1;
+	str1.print();
+
+	STRIN str2 = "Hello";
+	str2.print();
+
+	STRIN str3 = "World";
+	str3.print();
+
+	STRIN str4 = str2 + str3;
+
+	cout << typeid("Hello").name() << endl;
+
 }
 
-STRIN operator+(STRIN right, STRIN left)
+STRIN operator+(STRIN& one, STRIN& two)
 {
-	STRIN all;
-	right.set_all_str(right.get_str() + left.get_str());
-
-}
-
-ostream& operator<<(ostream& os, STRIN& obj)
-{
-	os << obj.get_all_str();
+	
 }
